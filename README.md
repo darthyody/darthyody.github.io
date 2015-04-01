@@ -5,3 +5,4 @@ Run a yeoman generator to support the following:
  * sass preprocessor
  * jade preprocessor
  * bootstrap
+ * jQuery
