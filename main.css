@@ -104,10 +104,10 @@ div {
 
 .timeline {
    z-index: 3;
-   margin-top: 700px;
-   margin-left: 5vh;
+   margin-top: 90vh;
+   margin-left: 5vw;
    position: fixed;
-   width: 1800px;
+   width: 90vw;
 }
 
 .timeline > .date {
@@ -121,27 +121,27 @@ div {
 }
 
 .timeline > #date_2 {
-   margin-left: 100px;
+   margin-left: 5vw;
 }
 
 .timeline > #date_3 {
-   margin-left: 250px;
+   margin-left: 10vw;
 }
 
 .timeline > #date_4 {
-   margin-left: 400px;
+   margin-left: 30vw;
 }
 
 .timeline > #date_5 {
-   margin-left: 450px;
+   margin-left: 40vw;
 }
 
 .timeline > #date_6 {
-   margin-left: 500px;
+   margin-left: 50vw;
 }
 
 .timeline > #date_7 {
-   margin-left: 1600px;
+   margin-left: 70vw;
 }
 
 .timeline > #time-dot {
@@ -154,7 +154,7 @@ div {
 .timeline > .timeline-line {
    margin-top: 7px;
    float: left;
-   width:1500px;
+   width:80vw;
    background: #333;
    height: 3px;
 }

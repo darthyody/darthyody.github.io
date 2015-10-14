@@ -28,7 +28,7 @@ $(function() {
          duration: 500,
          offset: 200
       })
-      .setTween("#time-dot", {x: i * 33})
+      .setTween("#time-dot", {x: i * ($(window).width()/56)})
       .addTo(ctrl);
 
       // underline a descriptive text
