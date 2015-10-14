@@ -42,6 +42,7 @@ $(function() {
       .addTo(ctrl);
    }
 
+   // move king into place and fade in
    new ScrollMagic.Scene({
       triggerElement: "#verse-group-5",
       offset: 200
@@ -49,6 +50,7 @@ $(function() {
    .setTween("#ks_1", {alpha: 1, y: 200, x: 400})
    .addTo(ctrl);
 
+   // hide king
    new ScrollMagic.Scene({
       triggerElement: "#verse-group-6"
    })
