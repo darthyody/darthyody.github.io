@@ -1,99 +1,94 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url("http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
 html, body {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
-
 .menu {
-   position:fixed;
-   margin-top: 30px;
-   float: left;
+  position: fixed;
+  margin-top: 30px;
+  float: left;
 }
 
 ul {
-   list-style: none;
-   font-size: 13px;
+  list-style: none;
+  font-size: 13px;
 }
-
 ul > li {
-   text-align: center;
-   line-height: 27px;
-   float: left;
-   width: 30px;
-   height: 30px;
-   border: solid 1px #ccc;
+  text-align: center;
+  line-height: 27px;
+  float: left;
+  width: 30px;
+  height: 30px;
+  border: solid 1px #ccc;
 }
-
-li#link-outline {
-   width: 150px;
+ul > li#link-outline {
+  width: 150px;
 }
-
-li:hover, li:active {
-   cursor: pointer;
-   background: #dadada;
-   box-shadow: inset 0 0 10px #aaa;
+ul > li > a {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
-
-li > a {
-   display: block;
-   height: 100%;
-   width: 100%;
+ul > li:hover, ul > li:active {
+  cursor: pointer;
+  background: #dadada;
+  box-shadow: inset 0 0 10px #aaa;
 }
 
 a:hover, a:active {
-   text-decoration: none;
+  text-decoration: none;
 }
 
 div {
-   display: block;
+  display: block;
 }
 
 #outline {
-   margin-top: 80px;
-   font-size: 40px;
+  margin-top: 80px;
+  font-size: 40px;
 }
 
 #end {
-   opacity: 1;
+  opacity: 1;
 }
 
 .outline-group {
-   color: #888;
-   font-size: 30px;
-   margin-right: 50px;
+  color: "#888";
+  font-size: 30px;
+  margin-right: 50px;
 }
 
 .underline {
-   text-decoration: underline;
+  text-decoration: underline;
 }
 
 .blue-text {
-   color: "blue";
+  color: "blue";
 }
 
 .para {
-   text-indent: 50px;
+  text-indent: 50px;
 }
 
 .verse {
-   font-size: 25px;
+  font-size: 25px;
 }
 
 .verse-num {
-   margin-top: -70px;
-   margin-left: -30px;
-   z-index: -1;
-   color: #ddd;
-   float: left;
-   position: fixed;
-   font-size: 150px;
+  margin-top: -70px;
+  margin-left: -30px;
+  z-index: -1;
+  color: "#ddd";
+  float: left;
+  position: fixed;
+  font-size: 150px;
 }
 
 .verse-group {
-   opacity: 0;
-   color: #888;
-   font-size: 30px;
-   margin-right: 50px;
+  opacity: 0;
+  color: "#888";
+  font-size: 30px;
+  margin-right: 50px;
 }
 
 .verse-group > div {
@@ -103,76 +98,65 @@ div {
 }
 
 .timeline {
-   z-index: 3;
-   margin-top: 90vh;
-   margin-left: 5vw;
-   position: fixed;
-   width: 90vw;
+  z-index: 3;
+  margin-top: 90vh;
+  margin-left: 5vw;
+  position: fixed;
+  width: 90vw;
 }
-
 .timeline > .date {
-   margin-top: 15px;
-   margin-left: 16px;
-   position: fixed;
-   float: left;
-   display: block;
-   border-left: solid 2px #000;
-   padding-left: 5px;
+  margin-top: 15px;
+  margin-left: 16px;
+  position: fixed;
+  float: left;
+  display: block;
+  border-left: solid 2px #000;
+  padding-left: 5px;
 }
-
 .timeline > #date_2 {
-   margin-left: 5vw;
+  margin-left: 5vw;
 }
-
 .timeline > #date_3 {
-   margin-left: 10vw;
+  margin-left: 10vw;
 }
-
 .timeline > #date_4 {
-   margin-left: 30vw;
+  margin-left: 30vw;
 }
-
 .timeline > #date_5 {
-   margin-left: 40vw;
+  margin-left: 40vw;
 }
-
 .timeline > #date_6 {
-   margin-left: 50vw;
+  margin-left: 50vw;
 }
-
 .timeline > #date_7 {
-   margin-left: 70vw;
+  margin-left: 70vw;
 }
-
 .timeline > #time-dot {
-   margin-left: 10px;
-   position: fixed;
-   float: left;
-   display: block;
+  margin-left: 10px;
+  position: fixed;
+  float: left;
+  display: block;
 }
-
 .timeline > .timeline-line {
-   margin-top: 7px;
-   float: left;
-   width:80vw;
-   background: #333;
-   height: 3px;
+  margin-top: 7px;
+  float: left;
+  width: 80vw;
+  background: #333;
+  height: 3px;
 }
-
 .timeline > * {
-   float: left;
-   display: block;
+  float: left;
+  display: block;
 }
 
 .kings .king {
-   text-align: center;
-   z-index: -2;
-   opacity: 0;
-   position: fixed;
-   float: left;
-   display: block;
+  text-align: center;
+  z-index: -2;
+  opacity: 0;
+  position: fixed;
+  float: left;
+  display: block;
 }
-
-.kings img{
-   border-radius: 40%;
+.kings img {
+  border-radius: 40%;
 }
