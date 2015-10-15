@@ -1,6 +1,46 @@
 {
    "book": "Daniel",
    "chapter": 11,
+   "outline" : [
+      {
+         "text": "Kings of Persia and Greece",
+         "start": 1,
+         "end": 4,
+         "subtext": []
+      },
+      {
+         "text": "Kings of the south and of the north",
+         "start": 5,
+         "end": 45,
+         "subtext" : [
+            {
+               "text": "An exactor to rise up",
+               "start": 20,
+               "end": 20
+            },
+            {
+               "text": "The Leader of the covenant broken",
+               "start": 22,
+               "end": 22
+            },
+            {
+               "text": "The god of fortresses glorified",
+               "start": 38,
+               "end": 38
+            },
+            {
+               "text": "A pushing between king of the south and king of the north",
+               "start": 40,
+               "end": 40
+            },
+            {
+               "text": "Disturbing reports from the east and the north",
+               "start": 44,
+               "end": 44
+            }
+         ]
+      }
+   ],
    "verses": [
       {
          "num": 1,

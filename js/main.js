@@ -1,10 +1,18 @@
 $(function() {
    var json = $.getJSON('js/json/daniel_11.json');
+   // var json = $.getJSON('js/json/1_timothy_3.json');
    json.done(function(data){
       var $menu = $('.menu');
       $menu.append("<h3 id='bibleBookChapter'>" + data.book + ' ' + data.chapter + "</h3>");
       $menu.append("<li id='link-outline'><a href='#outline'><span class='fa fa-bars'></span> OUTLINE</a></li><br>");
       var $ChapterText = $('#chapter-text');
+      var $Outline = $('#outline');
+      for (var i = 0; data.outline.length; i++) {
+         $Outline.append("<div>" + data.outline[i].text + " <a href='#verse-group-" + data.outline[i].start +  "'>(" + data.outline[i].start + "-" + data.outline[i].end + ")</a></div>");
+         for (var j = 0; j < data.outline[i].subtext.length; j++) {
+            $Outline.append("<div class='para'>" + data.outline[i].subtext[j].text + " <a href='#verse-group-" + data.outline[i].subtext[j].start +  "'>(" + data.outline[i].subtext[j].start + "-" + data.outline[i].subtext[j].end + ")</a></div>");
+         }
+      }
 
       for (var i = 0; i < data.verses.length; i++) {
          var link = "<li><a href='#verse-group-" + data.verses[i].num + "'>" + data.verses[i].num + "</a></li>";
@@ -16,7 +24,9 @@ $(function() {
          var verseBody = "<div id='verse-group-" + data.verses[i].num + "' class='verse-group'><div><div><div class='verse-num'>" + data.verses[i].num + "</div>" + data.verses[i].text + "</div></div></div>";
          $ChapterText.append(verseBody);
       }
+
       $ChapterText.append("<div id='end' class='verse-group'><div><div><h1 style='text-align: center; font-size:150px;'>THE END</h1></div></div></div>");
+
       setTimeout(loadAnimations, 2000);
    });
 
