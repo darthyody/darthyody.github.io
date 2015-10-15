@@ -32,7 +32,7 @@ $(function() {
       setTimeout(loadAnimations, 2000);
    });
 
-   function createOutlineLink(start, end, text, blIsSubtext = false) {
+   function createOutlineLink(start, end, text, blIsSubtext) {
       var para = (blIsSubtext) ? 'para' : '';
       var link = (start === end) ? start : start + '-' + end;
       var outlineDIV = "<div class='" + para + "'>" + text + " <a href='#verse-group-" + start +  "'>(" + link + ")</a></div>";
