@@ -1,4 +1,9 @@
 $(function() {
+   $.get('js/json/daniel_11.json', function(data) {
+      console.log(data);
+   });
+
+
    var ctrl = new ScrollMagic.Controller();
 
    for (i = 1; i < 46; i++) {
