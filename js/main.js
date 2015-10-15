@@ -7,10 +7,12 @@ $(function() {
       $menu.append("<li id='link-outline'><a href='#outline'><span class='fa fa-bars'></span> OUTLINE</a></li><br>");
       var $ChapterText = $('#chapter-text');
       var $Outline = $('#outline');
-      for (var i = 0; data.outline.length; i++) {
-         $Outline.append("<div>" + data.outline[i].text + " <a href='#verse-group-" + data.outline[i].start +  "'>(" + data.outline[i].start + "-" + data.outline[i].end + ")</a></div>");
+      for (var i = 0; i < data.outline.length; i++) {
+         var outlineLine = createOutlineLink(data.outline[i].start, data.outline[i].end, data.outline[i].text);
+         $Outline.append(outlineLine);
          for (var j = 0; j < data.outline[i].subtext.length; j++) {
-            $Outline.append("<div class='para'>" + data.outline[i].subtext[j].text + " <a href='#verse-group-" + data.outline[i].subtext[j].start +  "'>(" + data.outline[i].subtext[j].start + "-" + data.outline[i].subtext[j].end + ")</a></div>");
+            var outlineLine = createOutlineLink(data.outline[i].subtext[j].start, data.outline[i].subtext[j].end, data.outline[i].subtext[j].text, true);
+            $Outline.append(outlineLine);
          }
       }
 
@@ -30,8 +32,16 @@ $(function() {
       setTimeout(loadAnimations, 2000);
    });
 
-   var ctrl = new ScrollMagic.Controller();
+   function createOutlineLink(start, end, text, blIsSubtext = false) {
+      var para = (blIsSubtext) ? 'para' : '';
+      var link = (start === end) ? start : start + '-' + end;
+      var outlineDIV = "<div class='" + para + "'>" + text + " <a href='#verse-group-" + start +  "'>(" + link + ")</a></div>";
+      return outlineDIV;
+   }
+
+
    function loadAnimations() {
+   var ctrl = new ScrollMagic.Controller();
       for (i = 1; i < 46; i++) {
          var element = "#verse-group-" + i;
 
@@ -72,22 +82,21 @@ $(function() {
          .setClassToggle(element, "underline")
          .addTo(ctrl);
       }
+      // move king into place and fade in
+      new ScrollMagic.Scene({
+         triggerElement: "#verse-group-5",
+         offset: 200
+      })
+      .setTween("#ks_1", {alpha: 1, y: 200, x: 400})
+      .addTo(ctrl);
+
+      // hide king
+      new ScrollMagic.Scene({
+         triggerElement: "#verse-group-6"
+      })
+      .setTween("#ks_1", {alpha: 0})
+      .addTo(ctrl);
    }
-
-   // move king into place and fade in
-   // new ScrollMagic.Scene({
-   //    triggerElement: "#verse-group-5",
-   //    offset: 200
-   // })
-   // .setTween("#ks_1", {alpha: 1, y: 200, x: 400})
-   // .addTo(ctrl);
-
-   // // hide king
-   // new ScrollMagic.Scene({
-   //    triggerElement: "#verse-group-6"
-   // })
-   // .setTween("#ks_1", {alpha: 0})
-   // .addTo(ctrl);
 
    $('a[href*=#]:not([href=#])').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
