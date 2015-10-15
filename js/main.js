@@ -1,6 +1,18 @@
 $(function() {
-   $.get('js/json/daniel_11.json', function(data) {
-      console.log(data);
+   $.getJSON('js/json/daniel_11.json', function(data) {
+      var $menu = $('.menu');
+      $menu.append("<h3 id='bibleBookChapter'>" + data.book + ' ' + data.chapter + "</h3>");
+      $menu.append("<li id='link-outline'><a href='#outline'><span class='fa fa-bars'></span> OUTLINE</a></li><br>");
+      for (var i = 0; i < data.verses.length + 1; i++) {
+         var link = "<li><a href='#verse-group-" + data.verses[i].num + "'>" + data.verses[i].num + "</a></li>";
+         $menu.append(link);
+         if ((i + 1) % 5 === 0) {
+            $menu.append("<br>");
+         }
+      }
+
+      var $ChapterText = $('#chapter-text');
+      $ChapterText.append('hello world');
    });
 
 
