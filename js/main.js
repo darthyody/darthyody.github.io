@@ -23,13 +23,13 @@ $(function() {
             $menu.append("<br>");
          }
 
-         var verseBody = "<div id='verse-group-" + data.verses[i].num + "' class='verse-group'><div><div><div class='verse-num'>" + data.verses[i].num + "</div>" + data.verses[i].text + "</div></div></div>";
+         var verseBody = "<div id='trigger_" + data.verses[i].num + "'></div><div id='verse-group-" + data.verses[i].num + "' class='verse-group'><div><div><div class='verse-num'>" + data.verses[i].num + "</div>" + data.verses[i].text + "</div></div></div>";
          $ChapterText.append(verseBody);
       }
 
       $ChapterText.append("<div id='end' class='verse-group'><div><div><h1 style='text-align: center; font-size:150px;'>THE END</h1></div></div></div>");
 
-      setTimeout(loadAnimations, 2000);
+      setTimeout(loadAnimations, 1000);
    });
 
    function createOutlineLink(start, end, text, blIsSubtext) {
@@ -45,70 +45,68 @@ $(function() {
       for (i = 1; i < 46; i++) {
          var element = "#verse-group-" + i;
 
+         // move timeline dot across timeline
+         var _fadein = new TimelineMax().to(element, 1, { alpha: 1 });
+         var _timedot = new TimelineMax().to("#time-dot", 1, { x: i * ($(window).width()/56) });
+
          // pin verse to top of screen
          new ScrollMagic.Scene({
-            triggerElement: element,
+            triggerElement: '#trigger_' + i,//element,
             duration: 3000,
-            offset: 300
+            offset: 450
          })
          .setPin(element)
+         .addIndicators({ name: "PIN"})
          .addTo(ctrl);
 
          // make verse visible
          new ScrollMagic.Scene({
             triggerElement: element,
             duration: 500,
-            offset: 200
+            offset: 220
          })
-         .setTween(element, {alpha: 1})
+         .setTween(_fadein)
+         .addIndicators({ name: "fade"})
          .addTo(ctrl);
 
-         // move timeline dot across timeline
+         // move dot
          new ScrollMagic.Scene({
             triggerElement: element,
-            duration: 500,
-            offset: 200
-         })
-         .setTween("#time-dot", {x: i * ($(window).width()/56)})
-         .addTo(ctrl);
-
-         // underline a descriptive text
-         element = "#verse-desc-1-" + i;
-         new ScrollMagic.Scene({
-            triggerElement: element,
-            duration: 500,
+            duration: 400,
             offset: 400
          })
-         .setClassToggle(element, "underline")
+         .setTween(_timedot)
+         .addIndicators({ name: "dot"})
          .addTo(ctrl);
       }
+
+      var trigger = '#trigger_5';
+
+      // underline a descriptive text
+      new ScrollMagic.Scene({
+         triggerElement: trigger,
+         offset: 700
+      })
+      .setClassToggle("#verse-desc-5-1", "underline")
+      .addIndicators({ name: "underline"})
+      .addTo(ctrl);
+
       // move king into place and fade in
       new ScrollMagic.Scene({
-         triggerElement: "#verse-group-5",
-         offset: 200
+         triggerElement: trigger,
+         offset: 500
       })
       .setTween("#ks_1", {alpha: 1, y: 200, x: 400})
+      .addIndicators({ name: "kingPic"})
       .addTo(ctrl);
 
       // hide king
       new ScrollMagic.Scene({
-         triggerElement: "#verse-group-6"
+         triggerElement: trigger,
+         offset: 2500
       })
       .setTween("#ks_1", {alpha: 0})
+      .addIndicators({ name: "hideKing"})
       .addTo(ctrl);
    }
-
-   $('a[href*=#]:not([href=#])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-         var target = $(this.hash);
-         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-         if (target.length) {
-            $('html,body').animate({
-               scrollTop: target.offset().top
-            }, 500);
-            window.location.hash = this.hash;
-            return false;
-         }
-      }
-   });
 });
