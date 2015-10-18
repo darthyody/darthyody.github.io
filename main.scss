@@ -7,175 +7,29 @@ $font_color_gray: #888;
 $font_color_lightgray: #ddd;
 $font_color_blue: "blue";
 
+.s1 {
+   height: 100px;
+   border-top: dotted 1px $font_color_gray;
+}
 
-.menu {
-   position:fixed;
-   margin-top: 30px;
+#circles {
+   text-align: center;
+}
+
+.circle {
+   opacity: 0;   
    float: left;
+   text-align: center;
+   margin-left: 70px;
 }
 
-ul {
-   list-style: none;
-   font-size: 13px;
-   > li {
-      text-align: center;
-      line-height: 27px;
-      float: left;
-      width: 30px;
-      height: 30px;
-      border: solid 1px #ccc;
-
-      &#link-outline {
-         width:150px;
-      }
-
-      > a {
-         display: block;
-         height: 100%;
-         width: 100%;
-      }
-
-      &:hover, &:active {
-         cursor: pointer;
-         background: #dadada;
-         box-shadow: inset 0 0 10px #aaa;
-      }
-   }
-}
-
-a:hover, a:active {
-   text-decoration: none;
-}
-
-div {
-   display: block;
-}
-
-#outline {
-   margin-top: 80px;
-   font-size: 40px;
-}
-
-#end {
-   opacity: 1;
-}
-
-.outline-group {
-   color: $font_color_gray;
-   font-size: 30px;
-   margin-right: 50px;
-}
-
-.underline {
-   text-decoration: underline;
-}
-
-.blue-text {
-   color: $font_color_blue;
-}
-
-.para {
-   text-indent: 50px;
-}
-
-.verse {
-   font-size: 25px;
-}
-
-.verse-num {
-   margin-top: -70px;
-   margin-left: -30px;
-   z-index: -1;
-   color: $font_color_lightgray;
-   float: left;
-   position: fixed;
-   font-size: 150px;
-}
-
-.verse-group {
-   opacity: 0;
-   color: $font_color_gray;
-   font-size: 30px;
-   margin-right: 50px;
-   height: 100vh;
-}
-
-.verse-group > div {
-  display: block;
-  position: relative;
-  height: 100vh;
-}
-
-.timeline {
-   z-index: 3;
-   margin-top: 90vh;
-   margin-left: 5vw;
-   position: fixed;
-   width: 90vw;
-   > .date {
-      margin-top: 15px;
-      margin-left: 16px;
-      position: fixed;
-      float: left;
-      display: block;
-      border-left: solid 2px #000;
-      padding-left: 5px;
-   }
-   > #date_2 {
-      margin-left: 5vw;
-   }
-   > #date_3 {
-      margin-left: 10vw;
-   }
-
-   > #date_4 {
-      margin-left: 30vw;
-   }
-
-   > #date_5 {
-      margin-left: 40vw;
-   }
-
-   > #date_6 {
-      margin-left: 50vw;
-   }
-
-   > #date_7 {
-      margin-left: 70vw;
-   }
-
-   > #time-dot {
-      margin-left: 10px;
-      position: fixed;
-      float: left;
-      display: block;
-   }
-
-   > .timeline-line {
-      margin-top: 7px;
-      float: left;
-      width:80vw;
-      background: #333;
-      height: 3px;
-   }
-
-   > * {
-      float: left;
-      display: block;
-   }
-}
-
-.kings {
-   .king {
-      text-align: center;
-      z-index: -2;
-      opacity: 0;
-      position: fixed;
-      float: left;
-      display: block;
-   }
-
-   img{
-      border-radius: 40%;
+.king_pic {
+   width: 75px;
+   height: 75px;
+   border-radius: 50%;
+   border: solid 2px black;
+   overflow: hidden;
+   img {
+      width: 100%;
    }
 }
