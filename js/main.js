@@ -2,10 +2,15 @@ $(function() {
    var json = $.getJSON('js/json/daniel_11.json');
    // var json = $.getJSON('js/json/1_timothy_3.json');
    json.done(function(data){
+      // generate the navigation menu for the verses
       var $menu = $('.menu');
       $menu.append("<h3 id='bibleBookChapter'>" + data.book + ' ' + data.chapter + "</h3>");
       $menu.append("<li id='link-outline'><a href='#outline'><span class='fa fa-bars'></span> OUTLINE</a></li><br>");
+      
+      // prepare text section
       var $ChapterText = $('#chapter-text');
+      
+      // generate the outline section
       var $Outline = $('#outline');
       for (var i = 0; i < data.outline.length; i++) {
          var outlineLine = createOutlineLink(data.outline[i].start, data.outline[i].end, data.outline[i].text);
@@ -16,6 +21,7 @@ $(function() {
          }
       }
 
+      // generate html markup for text
       for (var i = 0; i < data.verses.length; i++) {
          var link = "<li><a href='#verse-group-" + data.verses[i].num + "'>" + data.verses[i].num + "</a></li>";
          $menu.append(link);
@@ -26,9 +32,10 @@ $(function() {
          var verseBody = "<div id='trigger_" + data.verses[i].num + "'></div><div id='verse-group-" + data.verses[i].num + "' class='verse-group'><div><div><div class='verse-num'>" + data.verses[i].num + "</div>" + data.verses[i].text + "</div></div></div>";
          $ChapterText.append(verseBody);
       }
-
+      // append all verse text to main body
       $ChapterText.append("<div id='end' class='verse-group'><div><div><h1 style='text-align: center; font-size:150px;'>THE END</h1></div></div></div>");
 
+      // add the animations after all the text has been loaded
       setTimeout(loadAnimations, 1000);
    });
 
