@@ -48,7 +48,10 @@ $(function() {
 
 
    function loadAnimations() {
-   var ctrl = new ScrollMagic.Controller();
+      // init animation controller
+      var ctrl = new ScrollMagic.Controller();
+
+      // create an animation for each verse section
       for (i = 1; i < 46; i++) {
          var element = "#verse-group-" + i;
 
